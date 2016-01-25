@@ -1,0 +1,73 @@
+<<<<<<< HEAD
+# Personal files
+*.user
+ 
+# Build results
+[Aa]pp_[Dd]ata/
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+ClientBin/
+*.obj
+.builds
+Installer/Output/*.exe
+bower_components/
+node_modules/
+
+ 
+# ReSharper
+_ReSharper.*
+*.resharper
+ 
+# Visual Studio, SourceSafe, TFS, and VS extensions
+*.suo
+*.[Cc]ache
+*.vscc 
+*.vsmdi
+*.vspcc
+*.vssscc
+*.scc
+*.vs10x
+publish/
+*.dbmdl
+TestResults/
+*.testsettings
+*.docstates
+*.docstates
+*.pubxml
+publishprofiles/
+ 
+# Mac droppings
+*.DS_Store
+ 
+# Vim
+*~
+*.swp
+ 
+# Other
+~$*
+*.orig
+ 
+#JetBrains IDE
+.idea
+
+*.log
+
+#Final Builder temporary files
+*.fb7lck
+*.fbl7
+merge.sh
+=======
+# Build and Release Folders
+bin/
+bin-debug/
+bin-release/
+
+# Other files and folders
+.settings/
+
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.
+>>>>>>> 26b93888189d1cc6049128b73568e4f241cfc3f3
