@@ -1,0 +1,103 @@
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+[data-ng-click],
+[ng-click],
+[x-ng-click]
+{
+  cursor: pointer;
+}
+
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}
+
+.default-cursor {
+  cursor: default !important;
+}
+
+.view-header {
+  font-size: 18pt;
+  font-weight: 500;
+}
+
+.tools {
+        background: white;        
+}
+
+.tools.ui-scrollfix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1010;
+}
+
+.fullscreen {
+    position: fixed;
+    z-index: 1020;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.dropdown-menu > li > button {        
+    font-weight: normal;
+    border-radius: 0;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: transparent;
+    display: block;
+    padding: 3px 20px;
+    clear: both;        
+    line-height: 1.42857143;
+    color: #333333;
+    white-space: nowrap;
+    width: 100%;
+    text-align: left;
+}
+.dropdown-menu > li > button:hover,
+.dropdown-menu > li > button:focus {
+    text-decoration: none;
+    color: #262626;
+    background-color: #eceff1;
+}    
+
+.tab-content {
+    padding-top: 10px;
+}
+
+.form-tr { 
+  background-color: transparent; 
+}
+
+.form-tr-second-row { 
+  background-color: transparent; 
+}
+
+.form-tr-second-row > td {   
+  border-color: transparent !important;
+}
+
+.form-alt-tr { 
+  background-color: #f5f6f7;
+}
+
+.form-alt-tr-second-row { 
+  background-color: #f5f6f7;
+}
+
+.form-alt-tr-second-row > td {   
+  border-color: transparent !important;
+}
+
+textarea {
+    width: 90%;
+    height: 200px;
+}
