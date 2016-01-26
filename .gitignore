@@ -9,6 +9,7 @@
 [Bb]in/
 [Oo]bj/
 ClientBin/
+Packages
 *.obj
 .builds
 Installer/Output/*.exe

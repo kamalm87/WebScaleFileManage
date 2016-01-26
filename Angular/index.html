@@ -8,7 +8,8 @@
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
+    <link href="Content/app.css" rel="stylesheet"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,19 +20,35 @@
 </head>
 <body data-ng-app="app">
     <div data-ng-include="'/App/Views/Nav.html'"></div>
+    <uib-tabset >
+        <uib-tab heading="Vertical 1">Vertical content 1</uib-tab>
+        <uib-tab heading="Vertical 2">Vertical content 2</uib-tab>
+    </uib-tabset>
 </body>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="Scripts/bootstrap.min.js"></script>
+    
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/ui-grid.js"></script>
+    <script src="Scripts/angular-resource.js"></script> 
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+    <!--
+        <script src="Scripts/bootstrap.min.js"></script>
+        <script src="Scripts/angular-bootstrap.js"></script>
+    -->
+    
+
     <script src="Scripts/angular-bootstrap.js"></script>
+
     <script src="Scripts\node_modules\angular-ui-layout\src\ui-layout.js"></script>
     
     <script src=" App/app.js"></script>
 <!-- controllers -->
     <script src="App/Controllers/peopleCtrl.js"></script>
     <script src="App/Controllers/navCtrl.js"></script>
+    <script src="App/Controllers/mainCtrl.js"></script>
 
 </html>  
