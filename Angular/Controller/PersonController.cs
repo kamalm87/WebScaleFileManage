@@ -10,6 +10,13 @@ namespace Angular
 {
     public class PersonController : ApiController
     {
+
+        public IHttpActionResult Query(dynamic d)
+        {
+            var wtf = d;
+            return null;
+        }
+
         private static readonly List<Person> people = new List<Person>
         {
             new Person

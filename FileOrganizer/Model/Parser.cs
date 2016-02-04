@@ -10,7 +10,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text;
 
 
-namespace FileOrganizer
+namespace FileOrganizer.Parser
 {
 
     public class BookMark

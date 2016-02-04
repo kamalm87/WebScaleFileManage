@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileOrganizer
+namespace FileOrganizer.Pdf
 {
     public class PdfBookMark
     {

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular", "Angular\Angular.csproj", "{6ADA2EE9-9C80-4289-9255-1337C4333336}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileOrganizer", "FileOrganizer\FileOrganizer.csproj", "{EF86D080-C7EB-4DFA-B2C0-B84E999ADD6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFileOrganizer", "TestFileOrganizer\TestFileOrganizer.csproj", "{265D06E8-08A5-4526-B796-86E29A1CFC26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lux.Recon.UI", "..\..\..\..\..\..\Temp\ang\Lux.Recon.UI\Lux.Recon.UI.csproj", "{3BD0F7D7-73E9-473A-A2C0-2ECFD87524F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6ADA2EE9-9C80-4289-9255-1337C4333336}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6ADA2EE9-9C80-4289-9255-1337C4333336}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6ADA2EE9-9C80-4289-9255-1337C4333336}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6ADA2EE9-9C80-4289-9255-1337C4333336}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EF86D080-C7EB-4DFA-B2C0-B84E999ADD6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EF86D080-C7EB-4DFA-B2C0-B84E999ADD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF86D080-C7EB-4DFA-B2C0-B84E999ADD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{265D06E8-08A5-4526-B796-86E29A1CFC26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{265D06E8-08A5-4526-B796-86E29A1CFC26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{265D06E8-08A5-4526-B796-86E29A1CFC26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BD0F7D7-73E9-473A-A2C0-2ECFD87524F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD0F7D7-73E9-473A-A2C0-2ECFD87524F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD0F7D7-73E9-473A-A2C0-2ECFD87524F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD0F7D7-73E9-473A-A2C0-2ECFD87524F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

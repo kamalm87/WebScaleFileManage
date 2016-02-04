@@ -48,3 +48,4 @@
   background: yellow;
 }
 
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

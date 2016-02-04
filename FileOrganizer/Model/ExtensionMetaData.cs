@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace FileOrganizer
+namespace FileOrganizer.Extension
 {
     public class ExtensionMetaData
     {

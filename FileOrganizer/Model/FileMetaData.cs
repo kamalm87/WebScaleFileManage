@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Security.Cryptography;
 
-namespace FileOrganizer
+namespace FileOrganizer.Media
 {
     // For media files:
     // * album art will be SHA-1 hashed on a per-file basis to save space on duplicated art (albums, compiliations, etc...)
@@ -59,7 +59,7 @@ namespace FileOrganizer
             var tag = file.Tag;
             Title = tag.Title;
             Album = tag.Album;
-            Artist = tag.Artists.FirstOrDefault();
+            Artist = tag.Performers.FirstOrDefault();
             AlbumArtist = tag.AlbumArtists.FirstOrDefault();
             TrackNumber = tag.Track;
             TrackCount = tag.TrackCount;

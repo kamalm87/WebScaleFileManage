@@ -1,32 +1,8 @@
-﻿<div ng-controller="navCtrl" class="navbar navbar-inverse navbar-static-top" role="navigation">
+﻿<div ng-controller="navCtrl" class="navbar">
+    <button ng-click="Query">Query</button>
 
-    <div class="navbar-header">
 
-        <div class="navbar-brand hidden-md hidden-sm">dreams...</div>
-
-        <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-    </div>
-
-    <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'">
-        <ul class="nav navbar-nav">
-
-            <li data-dropdown data-is-open="configurationOpen">
-                <a data-dropdown-toggle id="download">Configuration<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#/Recons">Recons</a></li>
-                    <li><a href="#/ReconConfig">ReconConfig</a></li>
-                    <li><a href="#/JSON">JSoN</a></li>
-                    <li><a href="#/Runrep">Runrep</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <uib-tabset  type="pills">
-        <uib-tab heading="Vertical 1">Vertical content 1</uib-tab>
-        <uib-tab heading="Vertical 2">Vertical content 2</uib-tab>
-    </uib-tabset>
+    <div id="grid1" ui-grid="gridOptions" ui-grid-edit class="grid"></div>
 </div>
+
+

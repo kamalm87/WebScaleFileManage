@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
+using FileOrganizer.Extension;
 
-namespace FileOrganizer
+namespace FileOrganizer.Directory
 {
     public class PathContents
     {
 
-        public static Parser Parser { get; set; }
+        public static FileOrganizer.Parser.Parser Parser = new FileOrganizer.Parser.Parser(@"C:\Users\Kamal\Desktop\ExtensionMap.json");
 
         public PathContents(string basePath)
         {

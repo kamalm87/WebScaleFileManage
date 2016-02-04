@@ -12,7 +12,7 @@ namespace Angular
         {
             var config = new HttpConfiguration();
             config.Routes.MapHttpRoute("DefaultAPI",
-                "api/{controller}/{id}",
+              "api/{controller}/{id}",
                 new { id = RouteParameter.Optional });
             app.UseWebApi(config);
         }

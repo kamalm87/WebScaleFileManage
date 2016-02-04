@@ -1,15 +1,13 @@
 ﻿var app = angular.module("app",
     [
+        'ngResource',
+        'ngRoute',
         'ui.bootstrap',
+        'ui.bootstrap.modal',
         'ui.grid',
-        'bootstrap',
-         'ui.layout',
-         'ngRoute'
+        'ui.layout'
     ])
     .config(function ($routeProvider) {
-        
-        $routeProvider
-        //.when('/TODO', {templateUrl:'Views/TODO.html', controller:'todoCtrl'})
-        .otherwise({templateUrl: 'Views/Main.html', controller: 'mainCtrl'});
-        
+    
+
 });
