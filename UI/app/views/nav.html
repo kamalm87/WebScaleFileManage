@@ -1,0 +1,27 @@
+﻿<div ng-controller="navCtrl" class="navbar navbar-inverse navbar-static-top" role="navigation">
+    
+    <div class="navbar-header">
+
+        <div class="navbar-brand hidden-md hidden-sm">Where dreams comes true...</div>
+
+        <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+	
+    <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'">
+        <ul class="nav navbar-nav">
+           
+            <li data-dropdown data-is-open="configurationOpen">
+                <a data-dropdown-toggle id="download">Configuration<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#/main">Primary</a></li>
+                    <li><a href="#/wtf">Place holder...</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+</div>

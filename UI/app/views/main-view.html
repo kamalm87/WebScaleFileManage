@@ -1,0 +1,83 @@
+﻿
+<div class="tools" ui-scrollfix="61">
+	<div class="container">
+		<div page-title class="view-header">{{title}}</div>
+		<nav ng-if="toolsUrl!=undefined" class="navbar navbar-default">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" ng-click="toolsOpened = !toolsOpened">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse" ng-class="toolsOpened ? 'in' : 'collapse'">
+				<ng-include src="toolsUrl" />
+			</div>
+		</nav>
+	</div>
+</div>
+<div class="container">
+	<ng-include src="viewUrl"/>
+</div>
+
+
+<div class="panel-body">
+	<div class="input-group">
+		<button class="btn btn-xs btn-primary" type="button" ng-click="UpdateConfig()">Update Config</button>
+	</div>
+	<br />
+	<table class="table table-striped table-condensed">
+		<thead>
+		<tr>
+			<th></th>
+			<th>Property Name</th>
+			<th>Property Value</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tr>
+			<td></td>
+			<td style="width: 100px">Host Name</td>
+			<td style="width: 100px"><input type="text" class="form-control small" ng-model="config.Host"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="width: 100px">Runrep Path</td>
+			<td style="width: 100px"><input type="text" class="form-control small" ng-model="config.RunRepPath"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="width: 100px">SSH Port</td>
+			<td style="width: 100px"><input type="text" class="form-control small" ng-model="config.SshPort"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="width: 100px">Host Username</td>
+			<td style="width: 100px"><input type="text" class="form-control small" ng-model="config.HostUserName"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="width: 100px">Host Password</td>
+			<td style="width: 100px"><input type="text" class="form-control small" ng-model="config.HostPassword"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="width: 100px">Geneva Username</td>
+			<td style="width: 100px"><input type="text" class="form-control small" ng-model="config.GenevaUserName"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="width: 100px">Geneva Password</td>
+			<td style="width: 100px"><input type="text" class="form-control small" ng-model="config.GenevaPassword"></td>
+			<td></td>
+		</tr>
+
+
+		</table>
+</div>

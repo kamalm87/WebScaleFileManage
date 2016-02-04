@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileOrganizer", "FileOrgani
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFileOrganizer", "TestFileOrganizer\TestFileOrganizer.csproj", "{265D06E8-08A5-4526-B796-86E29A1CFC26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lux.Recon.UI", "..\..\..\..\..\..\Temp\ang\Lux.Recon.UI\Lux.Recon.UI.csproj", "{3BD0F7D7-73E9-473A-A2C0-2ECFD87524F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{3BD0F7D7-73E9-473A-A2C0-2ECFD87524F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
