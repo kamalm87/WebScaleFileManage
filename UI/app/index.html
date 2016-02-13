@@ -1,8 +1,7 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Recon Config</title>
+	<title>Manage your files!</title>
 	<link href="/Content/app.css" rel="stylesheet"/>
 	<link href="/Content/ng-grid.min.css" rel="stylesheet"/>
 
@@ -22,20 +21,27 @@
 	<script src="/Scripts/angular-sanitize.min.js"></script>
 	<script src="/Scripts/angular-route.min.js"></script>
 	<script src="/Scripts/angular-resource.min.js"></script>
-	<script src="/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
-	<script src="/Scripts/angular-ui/ui-utils.min.js"></script>
+    <script src="/Scripts//angular-ui/ui-bootstrap-tpls.js"></script>
+	<!-- <script src="/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+	-->
+    <script src="/Scripts/angular-ui/ui-utils.min.js"></script>
     <script src="/Scripts/ui-grid.js"></script>
     <script src="/Scripts/node_modules/angular-ui-layout/src/ui-layout.js"></script>
     <script src="/app/app.js"></script>
+    
+
+    <!-- SERVICES -->
+    <script src="/app/services/fileService.js"></script>
+    <script src="/app/services/modalService.js"></script>
+    <script src="/app/directives/treeRepeat.js"></script>
     <script src="/app/controllers/primaryCtrl.js"></script>
 	<script src="/app/controllers/navCtrl.js"></script>
     <script src="/app/controllers/placeHolderCtrl.js"></script>
+    <script src="/app/controllers/bookmarkCtrl.js"></script>
 
-    <!-- SERVICES -->    
-    <script src="/app/services/fileService.js"></script>
+
 
 </head>
-<body>
 	<body data-ng-app="fileDataApp">
 		<div data-ng-include="'/app/views/nav.html'"></div>
 
@@ -45,5 +51,4 @@
 		</div>
 		<div data-ng-view=""></div>
 	</body>
-</body>
 </html>

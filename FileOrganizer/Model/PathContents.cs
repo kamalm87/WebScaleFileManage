@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 using FileOrganizer.Extension;
+using log4net;
+using log4net.Config;
 
 namespace FileOrganizer.Directory
 {
     public class PathContents
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(PathContents));
+
+
 
         public static FileOrganizer.Parser.Parser Parser = new FileOrganizer.Parser.Parser(@"C:\Users\Kamal\Desktop\ExtensionMap.json");
 

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Security.Cryptography;
+using log4net;
+using log4net.Config;
 
 namespace FileOrganizer.Media
 {
@@ -15,6 +17,8 @@ namespace FileOrganizer.Media
     //   so that it hashes based on the contents each byte[], rather than the reference
     public class ByteArrayComparer : IEqualityComparer<byte[]>
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(ByteArrayComparer));
+
         public bool Equals(byte[] l, byte[]r)
         {
             if (l == null || r == null)
@@ -36,8 +40,6 @@ namespace FileOrganizer.Media
             }
         }
     }
-    
-
 
     public enum FileType
     {
@@ -53,8 +55,11 @@ namespace FileOrganizer.Media
 
     public class MediaFile : FileMetaData
     {
-        public MediaFile(TagLib.File file)
+        private static readonly ILog log = LogManager.GetLogger(typeof(FileMetaData));
+
+        public MediaFile(TagLib.File file, FileInfo fi)
         {
+            log.Info("Creating media file: " + fi.FullName);
             FileType = FileType.Media;
             var tag = file.Tag;
             Title = tag.Title;
@@ -72,9 +77,26 @@ namespace FileOrganizer.Media
             BitRate = file.Properties.AudioBitrate;
             Duration = file.Properties.Duration;
             ArtworkHash = setArtIfAny(tag.Pictures);
+            FileInfo = fi;
         }
 
-
+        public dynamic ToJson()
+        {
+            return new
+            {
+                Title = Title,
+                Artist = Artist,
+                Genre = Genre,
+                Album = Album,
+                TrackNumber = TrackNumber,
+                DiscNumber = DiscNumber,
+                Comment = Comment,
+                Lyrics = Lyrics,
+                Duration = Duration,
+                FileInfo = FileInfo.FullName,
+                Extension = FileInfo.Extension
+            };
+        }
 
         public byte[] GetArtwork()
         {
@@ -152,11 +174,11 @@ namespace FileOrganizer.Media
 
     }
 
-
-
-
     public class PdfFile : FileMetaData
     {
+
+        private static readonly ILog log = LogManager.GetLogger(typeof(PdfFile));
+
         public PdfFile(FileInfo file)
         {
             FileInfo = file;
@@ -177,14 +199,26 @@ namespace FileOrganizer.Media
             }
         }
 
+        public dynamic ToJson()
+        {
+            return new
+            {
+                Title = MetaData != null && MetaData.ContainsKey("Title") ? MetaData["Title"] : string.Empty,
+                Author = MetaData != null && MetaData.ContainsKey("Author") ? MetaData["Author"] : string.Empty,
+                Subject = MetaData != null && MetaData.ContainsKey("Subject") ? MetaData["Subject"] : string.Empty,
+                NumberOfPages = NumberOfPages,
+                FilePath = FileInfo.FullName,
+                BookMarks = BookMarks
+            };
+        }
+
         public bool CanParse { get; set; }
         public int                              NumberOfPages { get; set; } 
         public Dictionary<string,string>        MetaData { get; set; }
         public List<Dictionary<String,object>>  BookMarks { get; set; }
-        public Dictionary<Object,iTextSharp.text.pdf.PdfObject> NamedDestinations { get; set; }
-        public List<Object> Links { get; set; }
-        public Exception Exception { get; set; }
+        private Dictionary<Object,iTextSharp.text.pdf.PdfObject> NamedDestinations { get; set; }
+        private List<Object> Links { get; set; }
+        private Exception Exception { get; set; }
     }
-
 
 }

@@ -1,8 +1,13 @@
 ﻿<div ng-controller="primaryCtrl">
     
     
+    <button ng-click="Debug()" class="btn">Debug</button>
     <button ng-click="Query()" class="btn">Query</button>
     <input ng-model="model.Directory" />
-    <div id="grid1" ui-grid="gridOptions" class="grid"></div>
+    
+    
+    <div id="grid1" ui-grid="mediaGrid" class="grid"></div>
+    <div id="grid2" ui-grid="pdfGrid" class="grid"></div>
+
 
 </div>

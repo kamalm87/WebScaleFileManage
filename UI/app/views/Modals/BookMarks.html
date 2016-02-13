@@ -1,0 +1,21 @@
+﻿<div class="modal-header">
+    <div class="modal-body">
+        <div frang-tree>
+            <div frang-tree-repeat="node in model">
+                <accordion>
+                    <accordion-group heading="{{node.Title}}">
+                        <accordion>
+                            <accordion-group frang-tree-insert-children="node.Kids" heading="{{node.Title}} | {{node.Page}}"/>                   
+                        </accordion>
+                    </accordion-group>
+                </accordion>
+                <!-- <ul frang-tree-insert-children="node.Kids">{{node.Title}} | {{node.Page}}</ul>
+                -->
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</div>

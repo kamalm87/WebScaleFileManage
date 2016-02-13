@@ -4,15 +4,20 @@ using System.Web.Http;
 using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.StaticFiles;
 using Microsoft.Owin;
+using log4net;
+using log4net.Config;
 
 namespace OwinSelfhostSample
 {
 	public class Startup
-	{
-		// This code configures Web API. The Startup class is specified as a type
-		// parameter in the WebApp.Start method.
-		public void Configuration(IAppBuilder app)
+    {
+        private static readonly ILog log = LogManager.GetLogger(typeof(Startup));
+
+        // This code configures Web API. The Startup class is specified as a type
+        // parameter in the WebApp.Start method.
+        public void Configuration(IAppBuilder app)
         {
+
             HttpConfiguration config = new HttpConfiguration();
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

@@ -8,13 +8,16 @@ using System.IO;
 using iTextSharp;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
-
+using log4net;
+using log4net.Config;
 
 namespace FileOrganizer.Parser
 {
 
     public class BookMark
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(BookMark));
+
         public BookMark() { }
         public string Page { get; set; }
         public Dictionary<string, BookMark> Children { get; set; }
@@ -23,6 +26,7 @@ namespace FileOrganizer.Parser
 
     public class Parser
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(Parser));
         public Parser(string filePath)
         {
             initContainers();
@@ -72,25 +76,29 @@ namespace FileOrganizer.Parser
                 {
                     var pics = mf.Tag.Pictures.ToList();
                 }
-                Console.WriteLine("Parsed: {0}", file.Name);
+                log.Info("Parsed: " +  file.Name);
+                return new FileOrganizer.Media.MediaFile(mf, file);
             }
             catch(Exception e)
             {
                 Exceptions[file] = e;
-                Console.WriteLine("Exception: {0}", file.Name);
+                log.Fatal("Parsed: " + file.Name);
             }
-
             return null;
+            
         }
         private static Dictionary<FileInfo, Exception> Exceptions = new Dictionary<FileInfo, Exception>();
+
         static public object ParsePdfFile(FileInfo file)
         {
+            /*
             var pdf = new PdfReader(file.FullName);
             var catalog = pdf.Catalog;
             var info = pdf.Info;
-            
+            */
+            return new FileOrganizer.Media.PdfFile(file);    
  
-            return null;
+            //return null;
         }
 
         public void AddMetaDataToPdfFile(FileInfo file, Dictionary<string,string> metaData)
@@ -149,7 +157,7 @@ namespace FileOrganizer.Parser
                 }
                 if (kids.Any())
                 {
-                    bm["Kids"] = kids;
+                    bm["children"] = kids;
                 }
             }
             return bm;
@@ -157,7 +165,7 @@ namespace FileOrganizer.Parser
 
         static void ProcessBookMark(Dictionary<string,object> bm)
         {
-            Console.WriteLine(bm["Title"]);
+            
             if (bm.ContainsKey("Kids")){
                 foreach(var sBM in bm["Kids"] as IEnumerable<Dictionary<string,object>>)
                 {
@@ -165,15 +173,6 @@ namespace FileOrganizer.Parser
                 }
             }
         }
-                
-      
-
-
-
 
     }
 }
-
-
-
-    
