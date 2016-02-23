@@ -3,13 +3,50 @@
 angular.module('fileDataApp')
 
        .controller('primaryCtrl', [
-        '$scope', '$fileService', '$modalService', '$modal', function ($scope, $fileService, $modalService, $modal) {
+        '$scope', '$fileService', '$modalService', '$modal', 'uiGridConstants', function ($scope, $fileService, $modalService, $modal, uiGridConstants) {
             $scope.viewUrl = '/app/views/Primary.html';
-            $scope.model;
+            $scope.model = {};
+
+            $scope.model.Options = {
+                MediaFiles: {
+                    Album : [],
+                    Artist: [],
+                    Comment: [],
+                    Extension: [],
+                    Genre: []
+                },
+                Pdfs: {
+                    Author: [],
+                    Subject: []
+                }
+            };
 
             $scope.mediaGrid = {
                 data: [],
-                enableFiltering: true
+                enableFiltering: true,
+                columnDefs : [
+                    {
+                        field: 'Artist', label: 'Artist',
+                        filter: {
+                            type: uiGridConstants.filter.SELECT,
+                            selectOptions: $scope.model.Options.MediaFiles.Artist
+                        }
+                    },
+                    {
+                        field: 'Album', label: 'Album',
+                        filter: {
+                            type: uiGridConstants.filter.SELECT,
+                            selectOptions: $scope.model.Options.MediaFiles.Album
+                        }
+                    },
+                    {
+                        field: 'Genre',
+                        filter: {
+                            type: uiGridConstants.filter.SELECT,
+                            selectOptions: $scope.model.Options.MediaFiles.Genre
+                        }
+                    }
+                ]
             };
 
             $scope.pdfGrid = {
@@ -24,7 +61,7 @@ angular.module('fileDataApp')
                             templateUrl: 'app/views/Modals/BookMarks.html',
                             controller: 'bookmarkCtrl',
                             resolve: {
-                                bookmarks : function(){
+                                bookmarks: function () {
                                     return x;
                                 }
                             }
@@ -51,7 +88,7 @@ angular.module('fileDataApp')
                     },
 
                 ]
-            }
+            };
            
 
 
@@ -61,17 +98,41 @@ angular.module('fileDataApp')
 
                 console.log("pdf");
                 console.log($scope.pdfGrid);
-            }
+            };
 
             $scope.Query = function () {
                 if ($scope.model.Directory) {
                     $fileService.FileQuery({ "Directory": $scope.model.Directory }, function (data) {
                         console.log(data);
-                        $scope.mediaGrid.data = data["MediaFiles"];
-                        $scope.pdfGrid.data = data["Pdfs"];
+
+                        $scope.mediaGrid.data = data["MediaFiles"]["List"];
+                        $scope.pdfGrid.data = data["Pdfs"]["List"];
+
+                        console.log(data["Pdfs"]["Options"]);
+
+
+                        for (var p in data["Pdfs"]["Options"]) {
+                            for (var q in data["Pdfs"]["Options"][p]) {
+                                $scope.model.Options["Pdfs"][p].push(data["Pdfs"]["Options"][p][q]);
+                            }
+                            
+                        }
+                        for (var p in data["MediaFiles"]["Options"]) {
+                            console.log(data["MediaFiles"]["Options"][p]);
+                            for (var q in data["MediaFiles"]["Options"][p]) {
+                                $scope.model.Options["MediaFiles"][p].push(
+                                    {
+                                        value: data["MediaFiles"]["Options"][p][q],
+                                        label: data["MediaFiles"]["Options"][p][q]
+                                    });
+                            }
+                        }
+
+                        console.log($scope.model.Options["MediaFiles"]);
+                        console.log($scope.mediaGrid.options);
                     });
                 }
-            }
+            };
 
             
         }

@@ -16,8 +16,8 @@ using log4net.Config;
 
 namespace WebApiTest.Controllers
 {
-	public class FileController : ApiController
-	{
+    public class FileController : ApiController
+    {
         private static readonly ILog log = LogManager.GetLogger(typeof(FileController));
 
 
@@ -29,6 +29,21 @@ namespace WebApiTest.Controllers
             var files = System.IO.Directory.GetFiles(dir);
             var pdfs = new List<dynamic>();
             var mfs = new List<dynamic>();
+
+            var mfsOptions = new Dictionary<string, HashSet<string>>
+            {
+                {"Artist",new HashSet<String>()},
+                {"Genre",new HashSet<String>()},
+                {"Album",new HashSet<String>()},
+                {"Comment",new HashSet<String>()},
+                {"Extension",new HashSet<String>()}
+            };
+
+            var pdfOptions = new Dictionary<string, HashSet<string>>{
+                {"Author",new HashSet<string>()},
+                {"Subject",new HashSet<string>()}
+            };
+
             foreach(var f in files)
             {
                 log.Info("Parsing: " + f);
@@ -38,18 +53,43 @@ namespace WebApiTest.Controllers
                 if(mf != null)
                 {
                     mfs.Add(mf.ToJson());
+                    mfsOptions["Artist"].Add(mf.Artist);
+                    mfsOptions["Genre"].Add(mf.Genre);
+                    mfsOptions["Album"].Add(mf.Album);
+                    mfsOptions["Comment"].Add(mf.Comment);
+                    mfsOptions["Extension"].Add(mf.FileType.ToString());
                 }
                 else if ( pdf != null)
                 {
                     pdfs.Add(pdf.ToJson());
+                    if (pdf.MetaData != null && pdf.MetaData.ContainsKey("Author"))
+                    {
+                        pdfOptions["Author"].Add(pdf.MetaData["Author"]);
+                    }
+
+                    if (pdf.MetaData != null && pdf.MetaData.ContainsKey("Subject"))
+                    {
+                        pdfOptions["Subject"].Add(pdf.MetaData["Subject"]);
+                    }
                 }
             }
             
             
-            return new Dictionary<string, List<dynamic>>()
+            return new Dictionary<string, Dictionary<string,dynamic>>()
             {
-                {"Pdfs", pdfs },
-                {"MediaFiles", mfs }
+                {"Pdfs",
+                    new Dictionary<string,dynamic>
+                    {
+                        {"List", pdfs },
+                        {"Options", pdfOptions }
+                    }
+                },
+                {"MediaFiles",  new Dictionary<string,dynamic>
+                    {
+                        {"List", mfs },
+                        {"Options", mfsOptions }
+                    }
+                }
             };
             
         }

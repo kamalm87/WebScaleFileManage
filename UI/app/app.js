@@ -8,7 +8,8 @@ var app = angular.module('fileDataApp', [
         'ui.grid',
         'ui.layout',
         'ngAnimate',
-        'ui.grid.grouping'
+        'ui.grid.grouping',
+        'ui.grid.selection'
 ])
     .config(function ($httpProvider, $routeProvider, $parseProvider, $logProvider, $locationProvider) {
 
