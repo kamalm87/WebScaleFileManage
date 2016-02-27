@@ -22,6 +22,9 @@ namespace WebApiTest.Controllers
 
 
         static Dictionary<string, PathContents> x = new Dictionary<string, PathContents>();
+
+
+
         public dynamic FileQuery(dynamic directory)
         {
             var dir = directory["Directory"].Value;
